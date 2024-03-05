@@ -2,4 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+pill-weak{
+    @apply text-red-600
+}
 
+pill-low{
+    @apply text-red-400
+}
+
+pill-medium{
+    @apply text-yellow-400
+}
+
+pill-high{
+    @apply text-green-600
+}
