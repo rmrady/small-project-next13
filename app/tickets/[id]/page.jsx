@@ -1,9 +1,26 @@
+import notFound from 'next/navigation'
+
+export async function generat() {
+  const res = await fetch('http://localhost:4000/tickets/')
+  const tickets = await res.json()
+
+  return tickets.map((val) =>({
+    id: val.id
+  }))
+}
+
+
+
+
 async function getTickets(id){
     const res = await fetch('http://localhost:4000/tickets/' +  id,{
       next: {
         revalidate: 10
       }
     })
+    if(!res.ok){
+      notFound()
+    }
     return res.json()
 }
 
