@@ -1,13 +1,13 @@
-import notFound from 'next/navigation'
+// import notFound from 'next/navigation'
 
-export async function generat() {
-  const res = await fetch('http://localhost:4000/tickets/')
-  const tickets = await res.json()
+// export async function generat() {
+//   const res = await fetch('http://localhost:4000/tickets/')
+//   const tickets = await res.json()
 
-  return tickets.map((val) =>({
-    id: val.id
-  }))
-}
+//   return tickets.map((val) =>({
+//     id: val.id
+//   }))
+// }
 
 
 
@@ -15,12 +15,12 @@ export async function generat() {
 async function getTickets(id){
     const res = await fetch('http://localhost:4000/tickets/' +  id,{
       next: {
-        revalidate: 10
+        revalidate: 1
       }
     })
-    if(!res.ok){
-      notFound()
-    }
+    // if(!res.ok){
+    //   notFound()
+    // }
     return res.json()
 }
 
