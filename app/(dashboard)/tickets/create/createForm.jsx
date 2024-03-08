@@ -32,17 +32,17 @@ export default function CreateForm() {
      }
   return (
     <form onSubmit={handleSubmit} className="w-[40%] flex flex-col items-center bg-white rounded-lg shadow-xl shadow-neutral-950 p-4">
-        <label className="block text-center my-2">
+        <label className="w-[90%] text-center my-2">
             <p className="font-bold text-[18px] text-gray-600">title:</p>
-            <input required type="text" onChange={(e)=> setTitle(e.target.value)} value={title} className="w-[100%] bg-blue-200 py-1 px-3 rounded-3xl"/>
+            <input required type="text" onChange={(e)=> setTitle(e.target.value)} value={title} className="w-[100%] bg-blue-100 py-1 px-3 rounded-3xl"/>
         </label>
 
-        <label className="block  text-center my-2" >
+        <label className="w-[90%] text-center my-2" >
             <p className="font-bold text-[18px] text-gray-600">body:</p>
-            <textarea required type="text" onChange={(e)=> setBody(e.target.value)} value={body} className="w-[100%] bg-blue-200 py-1 px-3 rounded-3xl"/>
+            <textarea required type="text" onChange={(e)=> setBody(e.target.value)} value={body} className="w-[100%] bg-blue-100 px-3 rounded-3xl"/>
         </label>
         <label className="block  text-center my-2" >
-            <p className="font-bold text-[18px] text-gray-600">Priority</p>
+            <p className="font-bold text-[18px] text-gray-600">Priority:</p>
             <select onChange={(e)=> setPriority(e.target.value)} value={priority} className="border border-gray-200 px-10 py-1 rounded-2xl">
                 <option value='low'>Low Priority</option>
                 <option value='medium'>medium Priority</option>

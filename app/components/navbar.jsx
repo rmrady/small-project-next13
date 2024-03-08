@@ -11,7 +11,7 @@ export default function Navbar() {
             <li className="text-purple-400 pt-2">OpenCode Helpdesk</li>
             <li className="pt-2"><Link href="/">Dashbord</Link></li>
             <li className="pt-2"><Link href="/tickets">Tickets</Link></li>
-            <li className="pt-2"><Link href="/create">Create</Link></li>
+            <li className="pt-2"><Link href="/tickets/create">Create</Link></li>
             
         </ul>
     </div>
