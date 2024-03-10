@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className} >
-        <div className="w-full  bg-slate-200 px-52">
+        <div className="w-full bg-slate-200 px-52">
           {children}
           <Footer/>
         </div>
