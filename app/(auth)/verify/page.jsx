@@ -1,6 +1,6 @@
 
 
-export default function varify() {
+export default function Varify() {
   return (
     <main>
         <h2>thanks for regiter</h2>
