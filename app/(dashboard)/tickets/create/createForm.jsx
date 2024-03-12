@@ -15,20 +15,26 @@ export default function CreateForm() {
         e.preventDefault()
         setIsloading(true)
 
-        const ticket = {
-            title, body, priority, user_email:"rmrady758@gmail.com"
-        }
+        const ticket = {title, body, priority}
         
-        const res = await fetch('http://localhost:4000/tickets',{
+        const res = await fetch('http://localhost:3000/api/tickets',{
             method: "POST",
             headers: {"Content-Type" : "application/json"},
             body: JSON.stringify(ticket)
         })
 
-        if(res.status === 201){
+        const json = await res.json()
+
+        if(json.error){
+            console.log('error');
+        }
+
+        if(json.data){
             router.refresh()
             router.push('/tickets')
         }
+
+        
      }
   return (
     <form onSubmit={handleSubmit} className="w-[40%] flex flex-col items-center bg-white rounded-lg shadow-xl shadow-neutral-950 p-4">
