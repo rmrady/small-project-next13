@@ -1,27 +1,30 @@
-// import notFound from 'next/navigation'
 
-// export async function generat() {
-//   const res = await fetch('http://localhost:4000/tickets/')
-//   const tickets = await res.json()
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import {cookies} from 'next/headers';
 
-//   return tickets.map((val) =>({
-//     id: val.id
-//   }))
-// }
-
+export async function generateMetadata({params}) {
+  
+  const supabase = createServerComponentClient({cookies})
+  const {data: ticket} = await supabase.from('Tickets')
+    .select()
+    .eq('id', params.id)
+    .single()
+    return{
+      title: `OpenCode Helpdesk | ${ticket?.title || 'ticket not found'}`
+    }
+}
 
 
 
 async function getTickets(id){
-    const res = await fetch('http://localhost:4000/tickets/' +  id,{
-      next: {
-        revalidate: 1
-      }
-    })
-    // if(!res.ok){
-    //   notFound()
-    // }
-    return res.json()
+  
+  const supabase = createServerComponentClient({cookies})
+  const {data} = await supabase.from('Tickets')
+    .select()
+    .eq('id', id)
+    .single()
+
+    return data
 }
 
 
